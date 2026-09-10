@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import terracePhoto from '../assets/photos/07-terrace-table-valley-view.jpg';
+import { hours, site } from '../data/content';
+---
+
+<section id="visita" class="bg-earth-dark py-24 text-cream sm:py-32">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 sm:px-8 md:grid-cols-2 md:gap-16">
+    <div class="reveal">
+      <p class="text-xs uppercase tracking-[0.3em] text-gold">
+        <span class="lang-es">Visítanos</span>
+        <span class="lang-en">Visit us</span>
+      </p>
+      <h2 class="font-display mt-5 text-4xl leading-tight sm:text-5xl">
+        <span class="lang-es">Km 8, camino de Casares</span>
+        <span class="lang-en">Km 8, on the road to Casares</span>
+      </h2>
+
+      <div class="mt-10 overflow-hidden rounded-sm">
+        <Image
+          src={terracePhoto}
+          alt="Mesas en la terraza de Venta Victoria"
+          class="h-64 w-full object-cover"
+          widths={[500, 900]}
+          sizes="(min-width: 768px) 40vw, 100vw"
+        />
+      </div>
+
+      <div class="mt-8 space-y-2 text-cream/85">
+        <p>{site.address}</p>
+        <p>{site.phone}</p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href={site.mapsUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 border border-cream/60 px-6 py-3 text-sm uppercase tracking-[0.15em] transition hover:bg-cream hover:text-earth-dark"
+        >
+          <span class="lang-es">Cómo llegar</span>
+          <span class="lang-en">Get directions</span>
+        </a>
+        <a
+          href={`tel:${site.phone.replace(/\s/g, '')}`}
+          class="inline-flex items-center gap-2 border border-cream/30 px-6 py-3 text-sm uppercase tracking-[0.15em] text-cream/85 transition hover:border-cream/60"
+        >
+          <span class="lang-es">Llamar</span>
+          <span class="lang-en">Call us</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal reveal-right">
+      <p class="mb-6 text-xs uppercase tracking-[0.3em] text-gold">
+        <span class="lang-es">Horario</span>
+        <span class="lang-en">Opening hours</span>
+      </p>
+      <ul class="divide-y divide-cream/15">
+        {hours.map((h) => (
+          <li class="flex items-baseline justify-between gap-4 py-3.5">
+            <span class="text-base text-cream/90">
+              <span class="lang-es">{h.day.es}</span>
+              <span class="lang-en">{h.day.en}</span>
+            </span>
+            <span class="text-right text-sm text-cream/70">
+              {h.ranges.length === 0 ? (
+                <>
+                  <span class="lang-es">Cerrado</span>
+                  <span class="lang-en">Closed</span>
+                </>
+              ) : (
+                h.ranges.map((r, i) => <span class="block">{r}</span>)
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

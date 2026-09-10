@@ -1,0 +1,51 @@
+---
+import { menu } from '../data/content';
+---
+
+<section id="carta" class="bg-stone py-24 sm:py-32">
+  <div class="mx-auto max-w-4xl px-6 sm:px-8">
+    <div class="reveal reveal-up mb-16 text-center">
+      <p class="text-xs uppercase tracking-[0.3em] text-terracotta">
+        <span class="lang-es">La carta</span>
+        <span class="lang-en">The menu</span>
+      </p>
+      <h2 class="font-display mt-5 text-4xl text-earth-dark sm:text-5xl">
+        <span class="lang-es">Lo que se cocina en Venta Victoria</span>
+        <span class="lang-en">What's cooking at Venta Victoria</span>
+      </h2>
+      <p class="mt-4 text-sm text-charcoal/60">
+        <span class="lang-es">Selección de la carta completa · precios 2024</span>
+        <span class="lang-en">Selection from the full menu · 2024 prices</span>
+      </p>
+    </div>
+
+    <div class="space-y-14">
+      {menu.map((group, gi) => (
+        <div class:list={["reveal", gi % 2 === 1 && "reveal-right"]}>
+          <h3 class="font-display text-2xl text-terracotta-dark sm:text-3xl">
+            <span class="lang-es">{group.title.es}</span>
+            <span class="lang-en">{group.title.en}</span>
+          </h3>
+          <div class="menu-divider mt-4 mb-6"></div>
+          <ul class="space-y-4">
+            {group.items.map((item) => (
+              <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <span class="text-lg text-charcoal">
+                  <span class="lang-es">{item.name.es}</span>
+                  <span class="lang-en">{item.name.en}</span>
+                  {item.popular && (
+                    <span class="ml-2 inline-block align-middle text-[0.65rem] uppercase tracking-wider text-gold">
+                      <span class="lang-es">Preferido</span>
+                      <span class="lang-en">Popular</span>
+                    </span>
+                  )}
+                </span>
+                <span class="whitespace-nowrap font-display text-lg text-earth">{item.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+const links = [
+  { href: '#venta', es: 'La Venta', en: 'The Venta' },
+  { href: '#cocina', es: 'La cocina', en: 'The kitchen' },
+  { href: '#carta', es: 'Carta', en: 'Menu' },
+  { href: '#opiniones', es: 'Opiniones', en: 'Reviews' },
+  { href: '#visita', es: 'Visítanos', en: 'Visit us' },
+];
+---
+
+<div
+  id="mobile-nav"
+  class="fixed inset-0 z-50 flex translate-x-full flex-col bg-charcoal text-cream transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+>
+  <div class="flex items-center justify-between px-6 py-6">
+    <span class="font-display text-lg tracking-wide">Venta Victoria</span>
+    <button
+      type="button"
+      data-menu-close
+      class="flex h-10 w-10 items-center justify-center rounded-full border border-cream/40 transition hover:border-cream"
+      aria-label="Cerrar menú / Close menu"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="flex flex-1 flex-col items-center justify-center gap-7">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        data-menu-close
+        class="font-display text-3xl transition hover:text-gold sm:text-4xl"
+      >
+        <span class="lang-es">{link.es}</span>
+        <span class="lang-en">{link.en}</span>
+      </a>
+    ))}
+  </nav>
+
+  <div class="flex flex-col items-center gap-2 pb-10 text-sm text-cream/70">
+    <a href="tel:+34952894199" class="hover:text-cream">952 89 41 99</a>
+    <span class="lang-es">Ctra. Casares, Km 8 · Málaga</span>
+    <span class="lang-en">Casares Road, Km 8 · Málaga</span>
+  </div>
+</div>

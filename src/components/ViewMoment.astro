@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import viewPhoto from '../assets/instagram/ig-03-terrace-chairs-golden-valley.jpg';
+---
+
+<section class="relative h-[70vh] min-h-[460px] w-full overflow-hidden">
+  <Image
+    src={viewPhoto}
+    alt="Vistas doradas a la Sierra de Casares desde la terraza"
+    class="absolute inset-0 h-full w-full object-cover"
+    widths={[640, 1200, 1920]}
+    sizes="100vw"
+  />
+  <div class="absolute inset-0 bg-charcoal/25"></div>
+  <div class="relative flex h-full items-end justify-center px-6 pb-14 sm:items-center sm:pb-0">
+    <p class="reveal reveal-up font-display max-w-xl text-center text-2xl leading-snug text-cream drop-shadow-md sm:text-4xl">
+      <span class="lang-es">Las vistas de la Sierra no se piden. Se disfrutan desde la mesa.</span>
+      <span class="lang-en">Nobody asks for the Sierra views. You just get to enjoy them from the table.</span>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import { site } from '../data/content';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-charcoal py-10 text-cream/60">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 text-center text-xs sm:flex-row sm:justify-between sm:px-8 sm:text-left">
+    <p class="font-display text-sm text-cream/80">{site.name}</p>
+    <p>
+      © {year} {site.name}. <span class="lang-es">Todos los derechos reservados.</span><span class="lang-en">All rights reserved.</span>
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import menuPhoto from '../assets/photos/02-menu-page.jpg';
+---
+
+<section id="venta" class="relative overflow-hidden bg-cream py-20 sm:py-28">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
+    <div class="reveal order-2 md:order-1">
+      <p class="text-xs uppercase tracking-[0.3em] text-terracotta">
+        <span class="lang-es">Una venta de carretera, de verdad</span>
+        <span class="lang-en">A real roadside venta</span>
+      </p>
+      <p class="font-display mt-6 text-7xl leading-none text-earth sm:text-8xl">Km 8</p>
+      <div class="mt-8 space-y-5 text-lg leading-relaxed text-charcoal/85">
+        <p class="lang-es">A pie de la carretera que sube a Casares, con las mismas ollas de siempre y las vistas que no se piden.</p>
+        <p class="lang-en">Right on the road up to Casares, with the same pots as always and views nobody asked for.</p>
+        <p class="lang-es">Manteles de cuadros, olor a guiso desde la puerta, y un servicio que te hace sentir de la familia — así lo describen quienes vuelven cada año.</p>
+        <p class="lang-en">Checked tablecloths, the smell of stew from the doorway, and service that makes you feel like family — that's how the regulars describe it.</p>
+      </div>
+    </div>
+
+    <div class="reveal reveal-right order-1 md:order-2">
+      <div class="relative mx-auto max-w-sm rotate-[1.5deg] border-8 border-white shadow-[0_25px_60px_-15px_rgba(36,31,26,0.35)]">
+        <Image
+          src={menuPhoto}
+          alt="Carta original de Venta Victoria"
+          class="h-full w-full object-cover"
+          widths={[400, 700]}
+          sizes="(min-width: 768px) 420px, 90vw"
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import stewPhoto from '../assets/photos/04-meat-stew-fries.jpg';
+import charcuterie from '../assets/photos/10-charcuterie-plate-alt.jpg';
+---
+
+<section id="cocina" class="bg-charcoal py-24 text-cream sm:py-32">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8">
+    <div class="reveal reveal-up mb-14 max-w-2xl">
+      <p class="text-xs uppercase tracking-[0.3em] text-gold">
+        <span class="lang-es">La cocina</span>
+        <span class="lang-en">The kitchen</span>
+      </p>
+      <h2 class="font-display mt-5 text-4xl leading-tight sm:text-5xl">
+        <span class="lang-es">No ha cambiado en años. Y ese es el punto.</span>
+        <span class="lang-en">It hasn't changed in years. That's the point.</span>
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-cream/75">
+        <span class="lang-es">Rabo de toro, venado en salsa, caldereta de cabrito — recetas caseras de la zona, servidas en raciones generosas, cocinadas como se cocinaba antes.</span>
+        <span class="lang-en">Oxtail, venison in sauce, kid goat stew — local home recipes, served in generous portions, cooked the way they always were.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-12">
+      <div class="reveal sm:col-span-7">
+        <Image
+          src={stewPhoto}
+          alt="Guiso de carne con patatas, especialidad de la casa"
+          class="h-[360px] w-full object-cover sm:h-[520px]"
+          widths={[500, 900, 1200]}
+          sizes="(min-width: 640px) 60vw, 100vw"
+        />
+      </div>
+      <div class="reveal reveal-right flex flex-col gap-4 sm:col-span-5">
+        <Image
+          src={charcuterie}
+          alt="Tabla de embutidos y quesos de la zona"
+          class="h-[360px] w-full object-cover sm:h-[520px]"
+          widths={[400, 700]}
+          sizes="(min-width: 640px) 35vw, 100vw"
+        />
+      </div>
+    </div>
+  </div>
+</section>
