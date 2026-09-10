@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+
+  --color-cream: #f6f0e6;
+  --color-cream-dark: #ece2d0;
+  --color-stone: #efe7d8;
+  --color-charcoal: #241f1a;
+  --color-earth: #6b4b34;
+  --color-earth-dark: #4a3223;
+  --color-olive: #6b7a4f;
+  --color-olive-dark: #4c5838;
+  --color-terracotta: #b5563a;
+  --color-terracotta-dark: #93432c;
+  --color-wine: #6e1f2a;
+  --color-gold: #c69a4e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* --- Language toggle: both langs render, CSS hides the inactive one --- */
+html[data-lang="es"] .lang-en { display: none; }
+html[data-lang="en"] .lang-es { display: none; }
+
+/* --- Alternating scroll reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateX(-2.5rem);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-right {
+  transform: translateX(2.5rem);
+}
+.reveal-up {
+  transform: translateY(2.5rem);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Menu ticket-style divider */
+.menu-divider {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-earth) 0,
+    var(--color-earth) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  height: 1px;
+  opacity: 0.35;
+}
